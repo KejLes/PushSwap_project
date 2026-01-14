@@ -6,16 +6,20 @@
 int ft_atoi(char* listaString);
 void swapElementsList(int argc, char **listaString, int** listaNumbersA);
 
+/* Voy a haver que al pasar al array de int, se guarden los numeros en un int y comprobar que 
+no pase el int_max, si pasa, devolver error */
+
+/* Tengo que comprobar si se puden introducir el 0 y números negativos para usarlos en códigos de errores*/
 int main(int argc, char **listaString)
 {
     int i = 1;
     while (i != argc) 
     {
-        printf("%s\n", listaString[i]);
+        printf("String: %s\n", listaString[i]);
         i++; 
     }
-    int *listaNumbersA;
-    if (!(listaNumbersA = (int *)malloc((argc - 1) * sizeof(int))))
+    int *listaNumbersA;     // Creamos la lista de enteros A con malloc
+    if (!(listaNumbersA = (int *)malloc(2 * (argc - 1) * sizeof(int))))
     {
         printf("Lista no creada");
         return(0);
@@ -25,10 +29,16 @@ int main(int argc, char **listaString)
     {
         printf("ListaNumerosA[%d]: %d\n", j, listaNumbersA[j]);
     }
+    int *listaNumbersB;     // Creamos la lista de enteros B con malloc
+    if (!(listaNumbersB = (int *)malloc(2 * (argc - 1) * sizeof(int))))
+    {
+        printf("Lista no creada");
+        return(0);
+    }
+    free(listaNumbersB);
     free(listaNumbersA);
     return(0); 
 }
-
 int ft_atoi(char* listaString)
 {
     int number;
@@ -51,17 +61,19 @@ int ft_atoi(char* listaString)
 
 void swapElementsList(int argc, char **listaString, int** listaNumbersA)
 {
-    int i;
-
-    i = 0;
     while(argc - 1)
     {
-        *listaNumbersA[argc - 2] = ft_atoi(listaString[argc - 2]);
+        (*listaNumbersA)[argc - 2] = ft_atoi(listaString[argc - 1]);
         argc--;
-        printf("%d\n", *listaNumbersA[argc - 2]);
     }
 }
 
+// Se pasa el primer elemento de
+void swap_a_to_b(int **listaNumbersA, int **listaNumbersB, int size)
+{
+    
+}
+/*
 int create_elements_in_list(char **listaString, char *lista2) 
 {
 
@@ -71,3 +83,4 @@ void    swap_list(char **listaString, char *lista2)
 {
 
 }
+*/
