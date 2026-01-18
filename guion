@@ -4,4 +4,10 @@
 
     Funcion tal que pones el ejecutable seguido de los numeros separados por un espacio, no puede haber nada qeu no sea numero.
     Asegurarse de que
-    
+
+
+Guión:
+Ingresan los argumentos, se ignoran los espacios, no puede haber números repetidos, se parsea a una lista
+de int y no pueden pasar de MAX_INT o MIN_INT.
+
+Queda ver el algoritmo ksort
